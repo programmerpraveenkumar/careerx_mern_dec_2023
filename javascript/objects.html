@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // key should not be duplicate
+        var person  = {
+            "name":"some name",
+            "mobile":"asdfads",
+            "address":"some address",
+            "age":45454,
+            "city":['city1','city2'],
+            "country":{
+                "c1":"one ciuntry",
+                "c2":"2nd ctry"
+            }
+        }
+        console.log(person['name']);//to access the value by key
+        console.log(person);
+        for(let key in person){
+            console.log(key,person[key]);
+        }
+        //iteration
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

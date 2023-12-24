@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // var let const
+        const myFood = "something";
+        var myname = "asdsadf";
+        var myname = "asdsadsfdf";
+        myname = "sdfsdfds";
+        
+        // const myFood = "something324";//error
+        // myFood = "new food";//error
+
+        /*
+        redeclaration cannot be possible
+        value can be updatable
+        let is for block scope.        
+        */
+       let test = "some value";//declaration
+       let test2 = "another value";
+        //let test = "some value";//error.re-declaration cant be done.
+        test = "new value";//update value can be possible
+        console.log(test);
+        {
+            const myasd  = "adf";
+            var myname = "asdsadfsdfsdf";
+            var test234 = "adsf";
+            let test = "in block";//no error
+            let test2 = "afadsf";
+            test = "asdf";//ok
+            console.log(test);
+        }
+        {
+            let test = "in block";//no error
+            let test2 = "afadsf";
+            test = "asdf";//ok
+            console.log(test);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

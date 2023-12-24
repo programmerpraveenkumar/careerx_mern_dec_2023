@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       function printMessage(){
+            console.log("sample message");
+        }
+        function printMessage2(){
+            console.log("sample message2");
+        }
+    
+    </script>
+</head>
+<body>
+    <button id="btn">Click me</button>
+    <h1 id="h1_id">Hi can you make to  click.?</h1>
+    <span class="spn_class">this is span</span>
+    <script>
+            //we should register the function
+           document.getElementById("btn").addEventListener("click",printMessage);
+           document.getElementById("h1_id").addEventListener("click",printMessage2);
+           document.querySelector(".spn_class").addEventListener("click",printMessage2);
+    </script>
+</body>
+</html>

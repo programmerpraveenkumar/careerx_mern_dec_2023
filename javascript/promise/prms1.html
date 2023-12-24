@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log("sample1");
+
+        // setTimeout(function(){
+        //     console.log("sample timeout");
+        // },1000)
+        timeoutPrms().then(function(res){
+                console.log(res);
+                console.log("sample2");
+        })
+
+        
+        function timeoutPrms(){
+              return new Promise(function(success,failure){
+                setTimeout(function(){
+                    success("this is success");
+                },2000)
+            })
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

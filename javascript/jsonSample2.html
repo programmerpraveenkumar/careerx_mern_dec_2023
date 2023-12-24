@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>        
+        
+        var country = {
+                        "country1":{
+                            "name":"country1",
+                            "pincode":4545,
+                            "capital":"asdfadsf",
+                            'departments':[
+                                "dept1","dept5","dept2","dept3"
+                            ]
+                        },"country2":{
+                            "name":"country2",
+                            "pincode":4578,
+                            "capital":"dsfasdfadsf",
+                            'departments':[
+                                "dept1","dept4","dept2","dept3"
+                            ]
+                        }
+                    }
+                    console.log(country['country1']['name']);
+                    for(let key in country){
+                        console.log(country[key]['name'],country[key]['capital'],country[key]['pincode']);
+                        for(let index in country[key]['departments']){
+                            console.log(country[key]['departments'][index]);
+                        }
+                    }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

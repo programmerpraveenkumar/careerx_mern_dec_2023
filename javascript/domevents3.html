@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function keydown(obj){
+                console.log(obj.value);
+        }
+        function keyPress(inputObj){
+                console.log("keypress",inputObj.value);
+        }
+        function keyUp(e,obj){
+            console.log(e.keyCode);
+            console.log("key up",obj.value);
+        }
+        function add(){
+            //txtbox always gives the string.
+            let num1 = document.getElementById("num1").value;
+            let num2 = document.getElementById("num2").value;
+            if(num1 !="" && num2 !=""){
+                if(!isNaN(num1) && !isNaN(num2)){
+                    let res = parseFloat(num1)+parseInt(num2);//
+                    document.getElementById("result").innerHTML = res;
+                }else{
+                    document.getElementById("result").innerHTML = "Error::please enter the number";
+                }
+                
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" onkeydown="keydown(this)">
+    <input type="text" onkeypress="keyPress(this)">
+    <input type="text" placeholder="Ente for onkeyup" onkeyup="keyUp(event,this)">
+
+    <div>
+        <h1>Enter number to perform addition</h1>
+        <input type="text" placeholder="Enter number" id="num1" onkeyup="add()">
+        <input type="text" placeholder="Enter number1"  id="num2" onkeyup="add()">
+        <h1 id="result"></h1>
+    </div>
+    
+    
+</body>
+</html>

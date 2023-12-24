@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error{
+            border: 1px solid red;
+        }
+        input{
+            margin:1px;
+        }
+    </style>
+    <script>
+        function validate(){
+                let name_val  = document.getElementById("name").value;
+                let email_val  = document.getElementById("email").value;
+                let pwd_val  = document.getElementById("password").value;
+
+                if(name_val == ""){
+                    document.getElementById("name").classList.add("error");
+                }else{
+                    document.getElementById("name").classList.remove("error");
+                }
+
+                if(email_val == ""){
+                    document.getElementById("email").classList.add("error")
+                }else{
+                    document.getElementById("email").classList.remove("error")
+                }
+
+
+                if(pwd_val == ""){
+                    document.getElementById("password").classList.add("error")
+                }else{
+                    document.getElementById("password").classList.remove("error")
+                }
+
+        }
+    </script>
+</head>
+<body>
+
+    <div>
+        <input type="text" id="name" placeholder="enter name">
+    </div>
+    <div>
+        <input type="text" id="email" placeholder="enter Email">
+    </div>
+    <div>
+        <input type="text" id="password" placeholder="enter Password">
+    </div>
+    <div>
+        <input id="btn" type="button" value="Validate">
+    </div>
+    <script>
+        document.querySelector("#btn").addEventListener("click",validate);
+    </script>
+</body>
+</html>

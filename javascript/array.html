@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // to store the multiple vaues in same variable
+        //index array
+        var nameList = ["asdf","rtyrtuy","bvngbn","uioui"];
+        console.log(nameList[1]);
+        console.log(nameList[10]);//undfined
+        nameList.push("new value");
+
+        nameList[10] = "this is for 10th";//store the value in the 10th index
+
+        console.log(nameList);
+        //loops
+        for(var index in nameList){
+            //how to access the value..?
+            console.log(index,nameList[index]);
+        }
+        console.log("---------");
+        //loop2
+        nameList.forEach((val)=>{
+            console.log(val);
+        })
+        console.log("---------");
+        //loop3
+        for(var start = 0;start<nameList.length;start++){
+            console.log(start,nameList[start]);
+        }
+        console.log("while ---------");
+        //loop4
+        var i = 0;
+        while(i<nameList.length){
+            console.log(i,nameList[i]);
+            i++;
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

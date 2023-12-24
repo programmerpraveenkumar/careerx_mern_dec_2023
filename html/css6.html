@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            /* will apply for the children */
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+      
+        }
+        .container div{
+            width: 28%;
+            border:2px solid red;
+        }
+
+        .container_grid{
+            margin: 2%;
+            /* will apply for the children */
+            display: grid;
+            grid-template-columns: repeat(3,30%);               
+        }
+        .container_grid div{
+            border:2px solid red;
+            padding:2%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div>this is div tag</div>
+        <div>this is div tag</div>
+        <div>this is div tag</div>
+        <div>this is div tag</div>
+        <div>this is div tag</div>
+        <div>this is div tag</div>
+        <div>this is div tag</div>
+        <div>this is div tag</div>
+        <div>this is div tag</div>
+    </div>
+    <div class="container_grid">
+        <div>this is div tag</div>
+        <div>this is div tag</div>
+        <div>this is div tag</div>
+        <div>this is div tag</div>
+        <div>this is div tag</div>
+        <div>this is div tag</div>
+        <div>this is div tag</div>
+        <div>this is div tag</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .div_class{
+            background-color: red;
+            width: 50%;
+            text-decoration: underline;
+            margin:5px;
+
+        }
+        .img{
+            width: 50%;
+        }
+        .span_class{
+            /*            
+            inline elements does not have width.
+            it takes only the content
+             */
+            /* width: 50%; */
+            background-color: red;
+            text-decoration: underline;
+            /* padding: 10px; */
+        
+        }
+        p{
+            background-color: #1d0a9a;
+            color: #fa0707;
+            width: 50%;
+            height: 1500px;
+            font-size: 25px;;
+            /* 
+            hidden -> will hide the elements
+            auto->add the scroll bar
+             */
+            overflow:auto;
+         
+        }
+        .heading_tag{
+            font-size:20px;
+            border:1px solid red;
+            background-color: blueviolet;
+            width: 50%;
+            border-radius: 5px;
+            text-decoration: underline;
+            text-transform: uppercase;
+        }
+        .google_link{
+            font-size:30px;
+            border:1px solid red;
+            text-decoration: none;
+        }
+        .div_2{
+            width: 50%;
+            background-color: blueviolet;
+            color: #fff;
+            /* padding:10px; */
+           
+            padding:10px 15px 20px 25px;/* clock wise applying*/
+
+            /* padding-top:10px;
+            padding-bottom:10px;
+            padding-right:20px; 
+            padding-left:20px; */
+            border:3px dashed red;
+            border-radius: 5px;
+        }
+        .div_2 span{
+            border:3px solid rgb(255, 0, 200);
+            border-radius: 5px;
+
+        }
+        div.circle{
+                width:50px;
+                height: 50px;
+                border-radius:25px;
+                /* background-color: red; */
+                border-color: red;
+                border-width: 1px;
+                border-style: solid;
+        }
+        .clock{
+            /* will not move the element during the scroll */
+            position: fixed;
+            bottom:50px;/* from the browser*/
+            right: 150px;
+            padding: 10px;
+            background-color: brown;
+        }
+        .clock2{
+             /* element will move during the scroll */
+            position: absolute;
+            bottom:150px;/* from the browser*/
+            right: 150px;
+            padding: 10px;
+            background-color: red;
+        }
+        .clock3{
+            position: relative;
+        }
+        .clock3  .text{
+            position: absolute;
+            bottom:0px;/* from the browser*/
+            left: 0px;
+            padding: 10px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="div_class">
+    this is div content
+</div>    
+<div  class="div_class">
+    this is another content
+</div>
+<span class="span_class">this is span content</span>
+<!-- <img class="img" src="https://images.pexels.com/photos/19017576/pexels-photo-19017576/free-photo-of-sunflowers-photograpy.jpeg" alt="sunflower"/> -->
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ex nulla maiores quidem, aperiam officiis nisi odio perferendis quas animi voluptatum magni reiciendis tenetur consequuntur sint mollitia cupiditate laboriosam enim!
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ex nulla maiores quidem, aperiam officiis nisi odio perferendis quas animi voluptatum magni reiciendis tenetur consequuntur sint mollitia cupiditate laboriosam enim!
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ex nulla maiores quidem, aperiam officiis nisi odio perferendis quas animi voluptatum magni reiciendis tenetur consequuntur sint mollitia cupiditate laboriosam enim!
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ex nulla maiores quidem, aperiam officiis nisi odio perferendis quas animi voluptatum magni reiciendis tenetur consequuntur sint mollitia cupiditate laboriosam enim!
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ex nulla maiores quidem, aperiam officiis nisi odio perferendis quas animi voluptatum magni reiciendis tenetur consequuntur sint mollitia cupiditate laboriosam enim!
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ex nulla maiores quidem, aperiam officiis nisi odio perferendis quas animi voluptatum magni reiciendis tenetur consequuntur sint mollitia cupiditate laboriosam enim!
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ex nulla maiores quidem, aperiam officiis nisi odio perferendis quas animi voluptatum magni reiciendis tenetur consequuntur sint mollitia cupiditate laboriosam enim!
+
+</p>
+<a class="google_link" href="http://google.com">Click</a>
+<h1 class="heading_tag">this is h1</h1>
+<h2 class="heading_tag">this is h2</h2>
+<h3 class="heading_tag">this is h3</h3>
+<div class="div_2">
+    <span>
+        this is content f the div adf adfasdf
+    </span>
+</div>
+<div class="circle">
+    <img style="width: 100%;" src="https://images.pexels.com/photos/19017576/pexels-photo-19017576/free-photo-of-sunflowers-photograpy.jpeg" alt="sunflower"/>
+
+ 
+</div>
+<div class="clock">
+       <!-- show the element without moving during the scroll -->
+    Time is 8:25PM
+</div>
+<!-- show the element in the position.
+    but can be scrollable during the scroll -->
+    <div class="clock2">       
+     Time is 8:35PM
+    </div>
+    <!-- 
+        when parent element has position prop,it can controlled the 
+    absolute 
+    -->
+    <div class="clock3">
+        this is clock3
+        <div class="text">
+            Time is 8.45 PM
+        </div>        
+    </div>
+</body>
+</html>

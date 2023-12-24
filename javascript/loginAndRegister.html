@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border:1px solid;
+            margin: 10px;;
+            width: 50%;
+            padding: 10px;
+            display: none;
+        }
+        #login.show{
+            display: block;
+        }
+        #register.show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    
+        <button id="login_frm_btn">Show Login Form</button>
+        <button id="reg_frm_btn">Show Register Form</button>
+
+        <select name="" id="">
+            <option value="">Login</option>
+            <option value="">Register</option>
+        </select>
+   
+    
+    <div id="login">
+        <h1>Login Form</h1>
+        
+            <input type="text" placeholder="Enter Email">
+            <input type="text" placeholder="Enter Password">
+            <input type="button" value="Login">
+        
+    </div>
+
+    <div id="register">
+        <h1>Register Form</h1>
+       
+            <input type="text" placeholder="Enter Name">
+            <input type="text" placeholder="Enter Email">
+            <input type="text" placeholder="Enter Re-password">
+            <input type="text" placeholder="Enter Password">
+            <input type="button" value="Register">
+    </div>
+    
+<script>
+document.querySelector("#select").addEventListener("change",function(){
+console.log("sample");
+    document.querySelector(".login-form").classList.add("show");
+    document.querySelector(".registration-form").classList.remove("show");
+})
+
+    document.querySelector("#login_frm_btn").addEventListener("click",function(){
+        document.querySelector("#login").classList.add("show");
+        document.querySelector("#register").classList.remove("show");
+    })
+    document.querySelector("#reg_frm_btn").addEventListener("click",function(){
+        document.querySelector("#login").classList.remove("show");
+        document.querySelector("#register").classList.add("show");
+    })
+</script>
+</body>
+</html>

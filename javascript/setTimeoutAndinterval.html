@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //setTimeout
+        function printMessage(){
+            console.log("sample function");
+        }
+        function printMessage1(){
+            console.log("sample function for interval");
+        }
+        // printMessage();
+        setTimeout(printMessage,5000);//1000ms -> 1sec
+        setInterval(printMessage1,3000)
+    </script>
+</head>
+<body>
+    <button>start or stop the interval</button>
+</body>
+</html>

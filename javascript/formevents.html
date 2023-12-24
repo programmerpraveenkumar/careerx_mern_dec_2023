@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function nameValidate(){
+            let nameVal = document.getElementById("name").value;
+            if(nameVal == '' || nameVal.length <5){
+                document.getElementById("nameError").innerHTML = "Error :: Name minimum length is 5";
+            }else{
+                document.getElementById("nameError").innerHTML = "";//clear the error
+            }
+            
+        }
+        function emailValidate(){
+            let emailVal = document.getElementById("email").value;
+            if(emailVal == '' || emailVal.length <15){
+                document.getElementById("emailError").innerHTML = "Error :: Email minimum length is 15";
+            }else{
+                document.getElementById("emailError").innerHTML = "";//clear the error
+            }
+        }
+        9178787878787
+        function mobileValidate(){
+            let mobileInputVal = document.getElementById("mobile").value;
+            let mobileVal = "";
+            if(mobileInputVal.startsWith("91")){
+                //removing the first 2 numbers.
+                mobileVal = mobileInputVal.slice(2);
+            }else{
+                mobileVal = mobileInputVal;
+            }
+            if(mobileVal == '' || mobileVal.length !=10){
+                document.getElementById("mobileError").innerHTML = "Error :: Mobile Number is not valid";
+            }else if(isNaN(mobileVal)){
+                document.getElementById("mobileError").innerHTML = "Error :: pls entr number for Mobile";
+            }else{
+                document.getElementById("mobileError").innerHTML = "";//clear the error
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <input type="text" id="name" placeholder="Enter name" onkeyup="nameValidate()">
+    <h1 id="nameError"></h1>
+    <input type="text" id="email"  placeholder="Enter name"  onkeyup="emailValidate()">
+    <h1 id="emailError"></h1>
+    <input type="text" id="mobile"  placeholder="Enter mobile"  onkeyup="mobileValidate()">
+    <h1 id="mobileError"></h1>
+    <textarea id="address"></textarea>
+    <h1 id="addressError"></h1>
+</body>
+</html>

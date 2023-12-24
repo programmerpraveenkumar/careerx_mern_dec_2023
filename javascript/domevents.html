@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function printIntheConsole(){
+            console.log("sample output");
+        }
+        function showAlert(){
+            alert("hi how are you..?")
+        }
+        function changeValue(curEle){
+            console.log("select is changing..",curEle.options.selectedIndex)
+        }
+        function getInput(){
+            //get the value from the textbox
+            let input = document.getElementById("name").value;
+            //write into the html
+            document.getElementById("heading_id").innerHTML = input;            
+            console.log(input);
+        }
+    </script>
+</head>
+<body>
+
+    <button onclick="printIntheConsole()">Click me</button>
+    <button onclick="showAlert()">Click me to show the alert</button>
+    <div onclick="showAlert()">hi this is the div</div>
+    <!-- onchange -->
+    <select onchange="changeValue(this)">
+        <option value="1">value 1</option>
+        <option value="2">value 2</option>
+        <option value="3">value 3</option>
+        <option value="4">value 4</option>
+    </select>
+
+    <input type="text" id="name"/>    
+    <h1 id="heading_id"></h1>
+    <button onclick="getInput()">Click to get the value from the button</button>
+
+</body>
+</html>

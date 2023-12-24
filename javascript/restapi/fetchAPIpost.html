@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        Url
+        http method
+        What data need to pass to server.?
+        */
+        async function getServerApi(){
+            let name = document.getElementById("name").value;
+            let job = document.getElementById("job").value;
+            //json object.
+            // let data = {
+            //     "name": "morpheus",
+            //     "job": "leader"
+            // }
+            let data = {
+                "name": name,
+                "job": job
+            }
+            let serRes = await fetch("https://reqres.in/api/users",{"method":"POST",
+            "body":JSON.stringify(data),
+            headers:{"content-type":"application/json"}
+            })
+            let jsonRes = await serRes.json();//
+            //JSON.stringify --> convert the jsonobj to string
+            document.querySelector("#h1_id").innerHTML = JSON.stringify(jsonRes);
+            // console.log(jsonRes);
+            
+        }
+        // getServerApi();
+    </script>
+</head>
+<body>
+    <h1 id="h1_id"></h1>
+    <input id="name" type="text">
+    <input  id="job" type="text">
+    <input id="button" type="button" value="Call Api">
+    <script>
+        document.querySelector("button").addEventListener("click",getServerApi);
+    </script>
+</body>
+</html>

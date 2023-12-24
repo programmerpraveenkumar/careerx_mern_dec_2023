@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        Url
+        http method
+        What data need to pass to server.?
+        */
+        async function getServerApi(){
+            let serRes = await fetch("https://reqres.in/api/users?page=2",{"method":"GET"})
+            let jsonRes = await serRes.json();//to extract the json response from server
+            console.log(jsonRes);
+            //JSON.stringify --> convert the jsonobj to stringf
+            document.querySelector("#h1_id").innerHTML = JSON.stringify(jsonRes);
+        }
+        getServerApi();
+    </script>
+</head>
+<body>
+    <h1 id="h1_id"></h1>
+</body>
+</html>

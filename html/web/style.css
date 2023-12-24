@@ -1,0 +1,50 @@
+.container{
+    width: 80%;
+    margin:0 auto;
+}
+.menu li{
+    display:inline-block;
+    margin:5px;
+    
+}
+li{
+    list-style-type: none;
+}
+li a{
+    text-decoration: none;
+    font-size: 25px;;
+}
+.content{
+    display: flex;
+    
+}
+.left-content,.right-content{
+    border:1px solid black;
+    width:25%;
+}
+.main-content{
+    width: 50%;
+    text-align: center;
+}
+.main-content h1{
+    font-size: 30px;;
+    text-transform: uppercase;
+}
+img{
+    width: 100%;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+footer p{
+    text-align: center;
+    font-size: 30px;
+    color: blueviolet;
+}
+
+.activeMenu{
+    color: red;
+}

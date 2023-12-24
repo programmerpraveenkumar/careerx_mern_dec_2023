@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        function validate(){
+            let email = document.getElementById("email").value;
+            let pwd = document.getElementById("pwd").value;
+            if(email == ""){
+                    document.getElementById("heading_id").innerHTML = "Email should not be empty";
+            }else if(pwd == ""){
+                    document.getElementById("heading_id").innerHTML = "Password should not be empty";
+            }else{
+                document.getElementById("heading_id").innerHTML = "Everything is fine..";                
+            }
+        }
+        function change(){
+            let value = document.getElementById("country_code_select").value;
+            document.getElementById("country_code").innerHTML = "+"+value;
+        }
+    </script>
+</head>
+<body>
+
+    <input type="text" id="email"  placeholder="Enter Email"/>    
+    <input type="text" id="pwd"  placeholder="Enter Password"/>    
+    <h1 id="heading_id"></h1>
+    <button onclick="validate()">validate</button>
+
+    <select name="" id="country_code_select" onchange="change()">
+        <option value="91">India</option>
+        <option value="1">usa</option>
+        <option value="52">Singapore</option>
+    </select>
+    <h1 id="country_code"></h1>
+ 
+
+</body>
+</html>

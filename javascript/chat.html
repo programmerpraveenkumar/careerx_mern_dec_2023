@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #chat_wrapper{
+            width: 50%;
+            border: 1px solid;
+            margin:0 auto;
+        }
+        #chatMsgList{
+            height: 500px;
+            overflow: auto;
+        }
+        #chatMsgList > div{
+            margin:10px 0;
+        }
+        textarea{
+            width: 80%;
+        }
+        button{
+            padding: 10px 40px;
+            background-color: brown;
+            color: #fff;
+        }
+    </style>
+
+    <script>
+        
+        function sendMessage(){
+
+            //reading the chat message from textarea
+                let msg  = document.getElementById("chat_input").value;
+
+                //creating the div element
+                let div = document.createElement("div");//create div element in js
+                div.innerHTML = msg;//appending the content to the div
+
+             document.getElementById("chatMsgList").append(div);//append the div into the chatmsgList id.
+            
+             //clear the textarea
+             document.getElementById("chat_input").value = '';//assing the empty string to textarea.
+        }
+        function handleInput(e){
+            //if keycode is 13(enter key)
+                if(e.keyCode == 13){
+                        sendMessage();
+                }
+        }
+    </script>
+
+</head>
+<body>
+    <div id="chat_wrapper">
+        <div id="chatMsgList">
+            
+                <!-- loading messages -->
+        </div>
+        <div>
+                <textarea onkeyup="handleInput(event)"  id="chat_input" placeholder="Enter message"></textarea>
+                <button onclick="sendMessage()">Send</button>
+        </div>
+
+    </div>
+    
+</body>
+</html>

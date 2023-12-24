@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        div{
+            border: solid black 1px;
+            margin: 10px;
+            padding: 10px;
+            display: none;
+        }
+
+        #show{
+            display: block;
+        }
+        
+    </style>
+</head>
+<body>
+    <label for="select" class="select">Select any: </label>
+    <select name="select" id="select">
+        <option value="" disabled selected>Select</option>
+        <option value="Login" class="login">Login</option>
+        <option value="Registration" class="regis">Registration</option>
+    </select>
+
+    <div class="login-form">
+        <h1>Login-Form</h1>
+        <form>
+            <label for="Gmail">Gmail: </label>
+            <input type="email" placeholder="enter your mail Id">
+            <label for="password">Password: </label>
+            <input type="password" placeholder="Enter your Password">
+
+
+            <script>
+                document.querySelector("#select").addEventListener("change",function(){
+    document.querySelector(".login-form").classList.add("show");
+    document.querySelector(".registration-form").classList.remove("show");
+})
+
+document.querySelector(".select").addEventListener("change",function(){
+    document.querySelector(".login-form").classList.remove("show");
+    document.querySelector(".registration-form").classList.add("show");
+})
+            </script>

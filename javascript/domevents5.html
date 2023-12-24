@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+      
+    
+    </script>
+</head>
+<body>
+    <button id="btn_id">Click me</button>
+    <input type="text" class="input" placeholder="Enter Name">
+    <script>
+        
+        //document.getElementById("btn_id")
+        document.querySelector("#btn_id").addEventListener('click',function(){
+            console.log("sample test for button click");
+        })
+        document.querySelector(".input").addEventListener('keyup',function(t){
+            console.log(t.target.value);//get the value from the current element.
+        })
+
+        /*
+        `change` will work only when input's value is changed and focus has gone.
+        */
+        document.querySelector(".input").addEventListener('change',function(t){
+            console.log("moving out--",t.target.value);//get the value from the current element.
+        }) 
+    </script>
+</body>
+</html>

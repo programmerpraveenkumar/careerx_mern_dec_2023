@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+      
+    
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="pwd" placeholder="Enter Password"/>
+    <input type="text" name="" id="re_pwd" placeholder="Enter re-Password"/>
+    <h1 id="error"></h1>
+    
+    <script>
+        
+        function pwdValidation(){
+            let pwdval = document.getElementById("pwd").value;
+            let rePwdVal = document.getElementById("re_pwd").value;
+            if(pwdval!= rePwdVal){
+                document.querySelector("#error").innerHTML = "Password is not match";
+            }else{
+                document.querySelector("#error").innerHTML = "Password is ok";
+            }
+        }
+        document.querySelector("#pwd").addEventListener('change',pwdValidation);
+        document.querySelector("#re_pwd").addEventListener('change',pwdValidation);
+        
+    </script>
+</body>
+</html>

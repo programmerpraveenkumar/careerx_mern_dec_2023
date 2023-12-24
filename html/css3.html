@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>another title</title>
+		<style>
+			/* space in the selector will be consider as parent & child */
+			.div1 h1{
+				color: red;
+			}
+			.div2 h1{
+				color: brown;
+			}	
+			#input_section input{
+				background-color: red;
+			}	
+			/*
+			/* will apply to all children */
+			/* .para_div p{
+					color: blue;
+			} */
+
+			/* will apply ony for direct children */
+			.para_div > p{
+					color: blue;
+			}
+			
+		</style>
+	</head>
+	<body>		
+		<div class="div1">
+			<h1>this is first div</h1>
+		</div>
+
+		<div  class="div2">
+			<h1>this is second div</h1>		
+		</div>
+		<section id="input_section">
+			<input type="text">
+		</section>		
+		<input type="text">
+		
+		<div class="para_div">
+			<div>
+				<p class="blue">this is para tag-1</p>
+			</div>
+			
+			<p>this is another para2</p>
+			
+		</div>
+
+
+	
+
+	</body>
+</html>

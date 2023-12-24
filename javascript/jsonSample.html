@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>        
+        // json-> javascript object notation.
+        // object of array -> {
+        // array of objects -> [
+        // var personListasdf = [["sdfsd"],['asdf']];
+        var personList = [
+                        {
+                            "name":"person1",
+                            "mobile":"asdfads",
+                            "address":"some address",
+                            "age":45454
+                        },{
+                            "name":"person2",
+                            "mobile":"asdfads",
+                            "address":"some address",
+                            "age":45454
+                        },
+        ];
+    //     console.log(personList);
+    //    console.log(personList[1]["name"]);
+    
+        for(let index in personList){
+             console.log(index);  
+            for(let key in personList[index]){
+                    console.log(key+"--"+personList[index][key]);
+            }
+        }                        
+
+    //    console.log(personlist[],'person2');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

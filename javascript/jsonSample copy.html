@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>        
+        
+        var animal = [
+                        {
+                            "name":"lion",
+                            "country":"africa",
+                            "totalCount":454
+                        },{
+                            "name":"tiger",
+                            "country":"india",
+                            "totalCount":500
+                        },{
+                            "name":"elephant",
+                            "country":"america",
+                            "totalCount":500
+                        },{
+                            "name":"hippo",
+                            "country":"australia",
+                            "totalCount":5000
+                        }
+        ];
+            for(let index in animal){
+                console.log("animal name is "+animal[index]['name']+" "+animal[index]['country'])
+            }  
+            for(let index in animal){
+             console.log(index);  
+            for(let key in animal[index]){
+                    console.log(key+"--"+animal[index][key]);
+            }
+        }  
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
