@@ -11,7 +11,10 @@
         What data need to pass to server.?
         */
         async function getServerApi(){
-            let serRes = await fetch("https://reqres.in/api/users?page=2",{"method":"GET"})
+            let serRes = await fetch("https://reqres.in/api/users?page=2",{
+                "method":"GET",
+                "headers":{"content-type":"application/json"}
+            })
             let jsonRes = await serRes.json();//to extract the json response from server
             console.log(jsonRes);
             //JSON.stringify --> convert the jsonobj to stringf

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error{
+            color: red;
+        }
+    </style>
+    <script>
+            /*
+                url -> https://reqres.in/api/users?page=2
+                http method - >get 
+                data to pass -> NO
+            */
+           async function getDetails(pageNo){
+            let serRes =  await fetch("https://reqres.in/api/users?page="+pageNo,
+            {
+                "method":"GET",
+                "headers":{"content-type":"application/json"}
+            });
+            let jsonRes = await serRes.json();
+           // console.log(jsonRes);
+            let userList = jsonRes['data'];
+            let tmp ="";
+            if(userList.length == 0){
+                tmp = "<h1 class='error'>No Data Found..</h1>";
+            }
+            for(let index in userList){
+                tmp += `<div>${userList[index]['first_name']}-${userList[index]['last_name']}
+                        <div>
+                            <img src="${userList[index]['avatar']}"/>
+                        </div>
+                            
+                        </div>`
+                        // console.log(userList[index]['first_name'],userList[index]['email'],userList[index]['avatar'])
+            }  
+            document.querySelector("#response").innerHTML = tmp;
+           }
+
+            //    function add(a,b){
+        //         let res = a+b;
+        //    }
+
+        //    var d = 10;
+        //    add(d,15);
+           
+
+    </script>
+</head>
+<body>
+    <select name="" id="pageNo">
+        <option>--select pageNo---</option>
+        <option value="1">Page 1</option>
+        <option value="2">Page 2</option>
+        <option value="3">Page 3</option>
+        <option value="4">Page 4</option>
+    </select>
+    <div id="response"></div>
+    <button>Click to call api</button>
+    <script>
+        document.querySelector("button").addEventListener("click",getDetails);
+        document.querySelector("#pageNo").addEventListener("change",function(e){
+                let val = e.target.value;
+                getDetails(val);
+        });
+    </script>
+</body>
+</html>
