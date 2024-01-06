@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Person{
+            name;
+            age;
+            //constructor will be called during object creation
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+            }
+            printDetails(){
+                console.log(this.name+" "+this.age);
+            }
+        }
+        let person = new Person("john",25);
+        person.printDetails();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
