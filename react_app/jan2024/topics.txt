@@ -1,0 +1,33 @@
+npx create-react-app APPNAME
+npm start
+
+
+react::
+home.html->header+content+footer
+about.html->header+content+footer
+contact.html->header+content+footer
+
+
+component architecture:
+homeComponent->headerComponent+content+footerComponent
+aboutComponent->headerComponent+content+footerComponent
+contactComponent->headerComponent+content+footerComponent
+headerComponent
+footerComponent
+
+
+Rules for Component Creation:
+    First lettr shuld be capital
+    returs only one element
+    filename and component name shoud be same.
+
+
+example of home component::
+Home.js
+function Home(){
+    return(){
+        <div>
+        
+        </div>
+    }
+}
