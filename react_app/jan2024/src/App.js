@@ -6,9 +6,13 @@ import Contact from './Contact';
 //npm install react-router-dom
 import {  createBrowserRouter,RouterProvider} from "react-router-dom";
 import Header from './Header';
+import Login from './Login';
 
 let routerList = createBrowserRouter([
   {
+    path:"login",
+    element:<Login/>
+  },{
     path:"home",
     element:<Home/>
   },{
@@ -17,6 +21,9 @@ let routerList = createBrowserRouter([
   },{
     path:"contact",
     element:<Contact/>
+  },{
+    path:"",
+    element:<Home/>
   }]
 )
 
