@@ -1,0 +1,16 @@
+title::User Management..
+www.reqres.in
+
+login.html->
+    if login succes go to userlist.html
+register.html
+    if register_success goto login page.
+
+userlist.html->get the user list from the api and list them in the page.when clicking on user name,it will navigate to use detail page,
+
+userDetail.html
+show th user detail from the previous page,
+
+
+all the field should have validation.
+all the api should use fetch with async/await

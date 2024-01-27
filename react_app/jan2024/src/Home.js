@@ -6,15 +6,23 @@ export default function Home(){
         {name:"test2","age":45},
         {name:"test3","age":55},
             ]
+            let status = true;
+            let red = false;
     return(
         <div>
-            <h2>{firstName}</h2>
+            <h2 className={(red)?"red":"blue"}>{firstName}</h2>
             <h1>this is home component.</h1>
             {
                 peopleDetails.map((obj,index)=>{
-                         return<> <div>{obj.name}</div> <div>{obj.age}</div></>
+                         return<> <div key={index}>{obj.name}</div> <div>{obj.age}</div></>
                 })
             }
+
+            {
+                (status)?<h1>This is true statement</h1>:<h1>This is false</h1>
+            }
+
+
         </div>
     )
 }

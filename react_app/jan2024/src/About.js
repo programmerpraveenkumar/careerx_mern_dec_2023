@@ -1,9 +1,9 @@
 export default function About(){
     let pageName = "About Page";
     let cityDetails = [
-        {"name":"test1","pincode":5858},
-        {"name":"test2","pincode":4858},
-        {"name":"test4","pincode":6858}
+        {"name":"test1","pincode":5858,peopleCount:102},
+        {"name":"test2","pincode":4858,peopleCount:105},
+        {"name":"test4","pincode":6858,peopleCount:92}
     ];
     return(
         <div>
@@ -11,7 +11,8 @@ export default function About(){
             <h2>{pageName}</h2>
             {
                 cityDetails.map((obj,index)=>{
-                    return <div key={index}>{obj.name} {obj.pincode}</div>
+                    // if peopleCount  more than 100 add red color or blue color
+                    return <div  key={index} className={obj.peopleCount>100?"red":"blue"}>{obj.name} {obj.pincode} {obj.peopleCount}</div>
                 })
             }
         </div>

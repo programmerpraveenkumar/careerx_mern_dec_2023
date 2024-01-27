@@ -7,6 +7,8 @@ import Contact from './Contact';
 import {  createBrowserRouter,RouterProvider} from "react-router-dom";
 import Header from './Header';
 import Login from './Login';
+import Login2 from './Login2';
+import ApiList from './ApiList';
 
 let routerList = createBrowserRouter([
   {
@@ -18,6 +20,12 @@ let routerList = createBrowserRouter([
   },{
     path:"about",
     element:<About/>
+  },{
+    path:"login2",
+    element:<Login2/>
+  },{
+    path:"ApiList",
+    element:<ApiList/>
   },{
     path:"contact",
     element:<Contact/>
