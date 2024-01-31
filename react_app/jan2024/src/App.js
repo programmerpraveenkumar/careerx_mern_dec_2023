@@ -9,6 +9,8 @@ import Header from './Header';
 import Login from './Login';
 import Login2 from './Login2';
 import ApiList from './ApiList';
+import ApiList2 from './ApiList2';
+import UserDetail from './UserDetail';
 
 let routerList = createBrowserRouter([
   {
@@ -25,10 +27,13 @@ let routerList = createBrowserRouter([
     element:<Login2/>
   },{
     path:"ApiList",
-    element:<ApiList/>
+    element:<ApiList2/>
   },{
     path:"contact",
     element:<Contact/>
+  },{
+    path:"userDetail",
+    element:<UserDetail/>
   },{
     path:"",
     element:<Home/>
