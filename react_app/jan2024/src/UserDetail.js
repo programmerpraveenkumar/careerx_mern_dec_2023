@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router-dom";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 export default function UserDetail(){   
     const [searchParams] = useSearchParams();//get the query param from the url
@@ -13,6 +13,13 @@ export default function UserDetail(){
     }
 
 
+    //below method will work during page load and oly one time.
+    useEffect(()=>{
+        loadDetail();
+    },[]);
+    useEffect(()=>{
+        loadDetail();
+    },[])
 
     const getApiUserDetail =async (userId)=>{
         let response = await fetch("https://reqres.in/api/users/"+userId,{"method":"GET","headers":{"content-type":"application/json"}});
@@ -25,7 +32,7 @@ export default function UserDetail(){
     return(
         <div>
             <h1>UserDetail</h1>
-            <button onClick={()=>loadDetail()}>Load Detail</button>
+            {/* <button onClick={()=>loadDetail()}>Load Detail</button> */}
 
             <div>
             <div>Name is {userDetail && userDetail['first_name']}</div>

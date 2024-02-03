@@ -1,9 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import './ApiList2.css';
+/*
+useRef
+useState
+useEffect->whenever a change happens in state variable
+    useEffect(()=>{},[state_variable])
+*/
 
 export default function ApiList2(){
     const[userList,setUserList]=  useState();
+
+    useEffect(()=>{
+        console.log("update.",userList);//print the variable
+    },[userList]);
+
+    //below method will trigger during page load.oly one time
+    useEffect(()=>{
+        console.log("update. empty array",);//print the variable
+    },[])
 
     const getApiUserList =async (pageNo)=>{
             let response = await fetch("https://reqres.in/api/users?page="+pageNo,{"method":"GET","headers":{"content-type":"application/json"}});

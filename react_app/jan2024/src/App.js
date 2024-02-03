@@ -11,6 +11,7 @@ import Login2 from './Login2';
 import ApiList from './ApiList';
 import ApiList2 from './ApiList2';
 import UserDetail from './UserDetail';
+import SampleClass from './SampleClass';
 
 let routerList = createBrowserRouter([
   {
@@ -34,6 +35,9 @@ let routerList = createBrowserRouter([
   },{
     path:"userDetail",
     element:<UserDetail/>
+  },{
+    path:"sample_class",
+    element:<SampleClass/>
   },{
     path:"",
     element:<Home/>

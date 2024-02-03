@@ -1,7 +1,16 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 export default function ApiList(){
     const[userList,setUserList]=  useState();
+/*
+useRef
+useState
+useEffect->whenever a change happens in state variable
+    useEffect(()=>{},[state_variable])
+*/
+    useEffect(()=>{
+        console.log(userList);//print the variable
+    },[userList])
 
     const getApiUserList =async ()=>{
             let response = await fetch("https://reqres.in/api/users?page=2",{"method":"GET"});

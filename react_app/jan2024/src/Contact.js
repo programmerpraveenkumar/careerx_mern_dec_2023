@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Contact(){
     let pageName = "Contact Page";
@@ -10,6 +10,9 @@ export default function Contact(){
        // pageName ="update value" ;
         setName("sdkfhksdhfkldj");//set the value for the variable
    }
+   useEffect(()=>{
+    console.log(name)
+   },[name]);
     return(
         <div>
            <h1>{name}</h1>
