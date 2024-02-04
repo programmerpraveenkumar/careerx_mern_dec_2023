@@ -1,4 +1,5 @@
 import React from "react";
+import UserList from "./UserList";
 export default class SampleClass extends React.Component{
     constructor(){
         super();//parent class constructor
@@ -38,22 +39,32 @@ export default class SampleClass extends React.Component{
                 <h2>{this.state.name}</h2>
                 <h1>this class Component</h1>
                 <input type="text"/>
-                {
-                    this.state.personList.map((obj,index)=>{
-                        return<h1 key={index}>{obj.name}</h1>
-                    })
-                }
+                <PersonList personList={this.state.personList}/>
                 {
                     this.state.status?<h1>H1 showing</h1>:false
                 }
                 <button onClick={()=>this.toggleStatus()} >Show and hide</button>
-                {this.state.userList && this.state.userList.map((o,i)=>{                
-                    return <> <img src={o.avatar}/> <h1 key={i}>{o.first_name}</h1></>
-                 })
-                }
+                
+                {/* sharing data to other component */}
+                <UserList detail={this.state.userList} pageTitle="Page Title User List"/>
             </div>
         )
     }
 
 }
 
+
+
+
+function PersonList(props){
+    return(
+        <>
+        <h1>PersonList component</h1>
+        {
+                    props.personList.map((obj,index)=>{
+                        return<h1 key={index}>{obj.name}</h1>
+                    })
+        }
+        </>
+    );
+}
