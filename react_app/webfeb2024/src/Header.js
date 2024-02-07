@@ -1,6 +1,7 @@
-export default function Header(){
+export default function Header(props){
     return (
         <>
+       
                 <div className="container-fluid bg-light p-0">
         <div className="row gx-0 d-none d-lg-flex">
             <div className="col-lg-7 px-5 text-start">
@@ -37,9 +38,9 @@ export default function Header(){
         </button>
         <div className="collapse navbar-collapse" id="navbarCollapse">
             <div className="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" className="nav-item nav-link active">Home</a>
-                <a href="about.html" className="nav-item nav-link">About</a>
-                <a href="service.html" className="nav-item nav-link">Services</a>
+                <a href="home"  className={"nav-item nav-link " + (props.currentPage =='home'?'active':null)}>Home</a>
+                <a href="about" className={"nav-item nav-link " + (props.currentPage =='about'?'active':null)}>About</a>
+                <a href="service"  className={"nav-item nav-link " +(props.currentPage =='service'?'active':null)}>Services</a>
                 <div className="nav-item dropdown">
                     <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div className="dropdown-menu fade-up m-0">

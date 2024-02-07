@@ -1,14 +1,31 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import Technicians from "./Technicians";
 export default class Home extends React.Component{
+    async getUserList(){
+        let response = await fetch("https://reqres.in/api/users?page=2",{"method":"GET"});
+        let data= await response.json();
+        this.setState({"userList":data['data']})
+    }
     constructor(){
         super();
+        this.state={
+            "userList":[],
+            "testimonialList":[
+                {"img":"assets/img/testimonial-1.jpg","name":"tst1","descripton":"Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit."},
+                {"img":"assets/img/testimonial-2.jpg","name":"tstt4","descripton":"Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit."},
+                {"img":"assets/img/testimonial-3.jpg","name":"client2","descripton":"Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit."},
+                {"img":"assets/img/testimonial-4.jpg","name":"client3","descripton":"Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit."},
+
+            ]
+        }
+        this.getUserList();
     }
     render(){
         return(
             <>
-            <Header/>
+            <Header currentPage="home"/>
             
     <div className="container-xxl py-5">
         <div className="container">
@@ -288,80 +305,9 @@ export default class Home extends React.Component{
     </div>
  
  
-    <div className="container-xxl py-5">
-        <div className="container">
-            <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 className="text-primary text-uppercase">// Our Technicians //</h6>
-                <h1 className="mb-5">Our Expert Technicians</h1>
-            </div>
-            <div className="row g-4">
-                <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div className="team-item">
-                        <div className="position-relative overflow-hidden">
-                            <img className="img-fluid" src="assets/img/team-1.jpg" alt=""/>
-                            <div className="team-overlay position-absolute start-0 top-0 w-100 h-100">
-                                <a className="btn btn-square mx-1" href=""><i className="fab fa-facebook-f"></i></a>
-                                <a className="btn btn-square mx-1" href=""><i className="fab fa-twitter"></i></a>
-                                <a className="btn btn-square mx-1" href=""><i className="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div className="bg-light text-center p-4">
-                            <h5 className="fw-bold mb-0">Full Name</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div className="team-item">
-                        <div className="position-relative overflow-hidden">
-                            <img className="img-fluid" src="assets/img/team-2.jpg" alt=""/>
-                            <div className="team-overlay position-absolute start-0 top-0 w-100 h-100">
-                                <a className="btn btn-square mx-1" href=""><i className="fab fa-facebook-f"></i></a>
-                                <a className="btn btn-square mx-1" href=""><i className="fab fa-twitter"></i></a>
-                                <a className="btn btn-square mx-1" href=""><i className="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div className="bg-light text-center p-4">
-                            <h5 className="fw-bold mb-0">Full Name</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div className="team-item">
-                        <div className="position-relative overflow-hidden">
-                            <img className="img-fluid" src="assets/img/team-3.jpg" alt=""/>
-                            <div className="team-overlay position-absolute start-0 top-0 w-100 h-100">
-                                <a className="btn btn-square mx-1" href=""><i className="fab fa-facebook-f"></i></a>
-                                <a className="btn btn-square mx-1" href=""><i className="fab fa-twitter"></i></a>
-                                <a className="btn btn-square mx-1" href=""><i className="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div className="bg-light text-center p-4">
-                            <h5 className="fw-bold mb-0">Full Name</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div className="team-item">
-                        <div className="position-relative overflow-hidden">
-                            <img className="img-fluid" src="assets/img/team-4.jpg" alt=""/>
-                            <div className="team-overlay position-absolute start-0 top-0 w-100 h-100">
-                                <a className="btn btn-square mx-1" href=""><i className="fab fa-facebook-f"></i></a>
-                                <a className="btn btn-square mx-1" href=""><i className="fab fa-twitter"></i></a>
-                                <a className="btn btn-square mx-1" href=""><i className="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div className="bg-light text-center p-4">
-                            <h5 className="fw-bold mb-0">Full Name</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
+    <Technicians userList={this.state.userList}/>
+
+
     <div className="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div className="container">
             <div className="text-center">
@@ -369,38 +315,23 @@ export default class Home extends React.Component{
                 <h1 className="mb-5">Our Clients Say!</h1>
             </div>
             <div className="owl-carousel testimonial-carousel position-relative">
-                <div className="testimonial-item text-center">
-                    <img className="bg-light rounded-circle p-2 mx-auto mb-3" src="assets/img/testimonial-1.jpg" />
-                    <h5 className="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div className="testimonial-text bg-light text-center p-4">
-                    <p className="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div className="testimonial-item text-center">
-                    <img className="bg-light rounded-circle p-2 mx-auto mb-3" src="assets/img/testimonial-2.jpg" />
-                    <h5 className="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div className="testimonial-text bg-light text-center p-4">
-                    <p className="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div className="testimonial-item text-center">
-                    <img className="bg-light rounded-circle p-2 mx-auto mb-3" src="assets/img/testimonial-3.jpg" />
-                    <h5 className="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div className="testimonial-text bg-light text-center p-4">
-                    <p className="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div className="testimonial-item text-center">
-                    <img className="bg-light rounded-circle p-2 mx-auto mb-3" src="assets/img/testimonial-4.jpg"/>
-                    <h5 className="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div className="testimonial-text bg-light text-center p-4">
-                    <p className="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
+                {
+                    this.state.testimonialList.map((obj,index)=>{
+                            return(
+                                <div key={index} className="testimonial-item text-center">
+                                <img className="bg-light rounded-circle p-2 mx-auto mb-3" src={obj.img} />
+                                <h5 className="mb-0">{obj.name}</h5>
+                                <p>Profession</p>
+                                <div className="testimonial-text bg-light text-center p-4">
+                                <p className="mb-0">{obj.descripton}</p>
+                                </div>
+                            </div>
+                            )
+                    })
+                }
+               
+              
+               
             </div>
         </div>
     </div>
