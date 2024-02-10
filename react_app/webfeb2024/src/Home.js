@@ -2,7 +2,13 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Technicians from "./Technicians";
+import TestimonialList from "./TestimonialList";
+import { DateContext } from "./ContextConfig";
+import { APP_NAME } from "./Constant";
+
+
 export default class Home extends React.Component{
+   
     async getUserList(){
         let response = await fetch("https://reqres.in/api/users?page=2",{"method":"GET"});
         let data= await response.json();
@@ -23,10 +29,13 @@ export default class Home extends React.Component{
         this.getUserList();
     }
     render(){
+        //below code is for sharing context
+        let date = this.context;
         return(
+  
             <>
             <Header currentPage="home"/>
-            
+            <h1>DateContext value is {date}       </h1>
     <div className="container-xxl py-5">
         <div className="container">
             <div className="row g-4">
@@ -34,7 +43,7 @@ export default class Home extends React.Component{
                     <div className="d-flex py-5 px-4">
                         <i className="fa fa-certificate fa-3x text-primary flex-shrink-0"></i>
                         <div className="ps-4">
-                            <h5 className="mb-3">Quality Servicing</h5>
+                            <h5 className="mb-3">Quality Servicing {APP_NAME}</h5>
                             <p>Diam dolor diam ipsum sit amet diam et eos erat ipsum</p>
                             <a className="text-secondary border-bottom" href="">Read More</a>
                         </div>
@@ -306,38 +315,12 @@ export default class Home extends React.Component{
  
  
     <Technicians userList={this.state.userList}/>
-
-
-    <div className="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div className="container">
-            <div className="text-center">
-                <h6 className="text-primary text-uppercase">// Testimonial //</h6>
-                <h1 className="mb-5">Our Clients Say!</h1>
-            </div>
-            <div className="owl-carousel testimonial-carousel position-relative">
-                {
-                    this.state.testimonialList.map((obj,index)=>{
-                            return(
-                                <div key={index} className="testimonial-item text-center">
-                                <img className="bg-light rounded-circle p-2 mx-auto mb-3" src={obj.img} />
-                                <h5 className="mb-0">{obj.name}</h5>
-                                <p>Profession</p>
-                                <div className="testimonial-text bg-light text-center p-4">
-                                <p className="mb-0">{obj.descripton}</p>
-                                </div>
-                            </div>
-                            )
-                    })
-                }
-               
-              
-               
-            </div>
-        </div>
-    </div>
+    <TestimonialList userList={this.state.testimonialList}/>
             <Footer/>
             </>
         )
     }
 
 }
+
+Home.contextType = DateContext;

@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 export default function Header(props){
     return (
         <>
@@ -22,7 +24,7 @@ export default function Header(props){
                 <div className="h-100 d-inline-flex align-items-center">
                     <a className="btn btn-sm-square bg-white text-primary me-1" href=""><i className="fab fa-facebook-f"></i></a>
                     <a className="btn btn-sm-square bg-white text-primary me-1" href=""><i className="fab fa-twitter"></i></a>
-                    <a className="btn btn-sm-square bg-white text-primary me-1" href=""><i className="fab fa-linkedin-in"></i></a>
+                    <a target="__blank" className="btn btn-sm-square bg-white text-primary me-1" href="http://linkedin.com"><i className="fab fa-linkedin-in"></i></a>
                     <a className="btn btn-sm-square bg-white text-primary me-0" href=""><i className="fab fa-instagram"></i></a>
                 </div>
             </div>
@@ -38,9 +40,9 @@ export default function Header(props){
         </button>
         <div className="collapse navbar-collapse" id="navbarCollapse">
             <div className="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="home"  className={"nav-item nav-link " + (props.currentPage =='home'?'active':null)}>Home</a>
-                <a href="about" className={"nav-item nav-link " + (props.currentPage =='about'?'active':null)}>About</a>
-                <a href="service"  className={"nav-item nav-link " +(props.currentPage =='service'?'active':null)}>Services</a>
+                <NavLink to="/home"  className={"nav-item nav-link " + (props.currentPage =='home'?'active':null)}>Home</NavLink>
+                <NavLink to="/about" className={"nav-item nav-link " + (props.currentPage =='about'?'active':null)}>About</NavLink>
+                <NavLink to="/service"  className={"nav-item nav-link " +(props.currentPage =='service'?'active':null)}>Services</NavLink>
                 <div className="nav-item dropdown">
                     <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div className="dropdown-menu fade-up m-0">

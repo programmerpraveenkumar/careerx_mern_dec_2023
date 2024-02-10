@@ -1,10 +1,14 @@
+import { useContext } from "react"
+import { DateContext } from "./ContextConfig";
+
 export default function Technicians(props){
+    let cntxt = useContext(DateContext);
     return(
         <div className="container-xxl py-5">
         <div className="container">
             <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 className="text-primary text-uppercase">// Our Technicians //</h6>
-                <h1 className="mb-5">Our Expert Technicians</h1>
+                <h1 className="mb-5">Our Expert Technicians {cntxt}</h1>
             </div>
             <div className="row g-4">
                 {

@@ -4,6 +4,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
 import Service from './Service';
+import { DateContext } from './ContextConfig';
 
 let router = createBrowserRouter([
   {
@@ -21,10 +22,15 @@ let router = createBrowserRouter([
     element:<Home/>
   }
 
-])
+]);
+
+
 function App() {
   return (
-    <RouterProvider router={router} />
+    <DateContext.Provider value="10feb2024">
+      <RouterProvider router={router} />
+    </DateContext.Provider>
+  
   );
 }
 
