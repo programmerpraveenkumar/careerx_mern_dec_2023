@@ -2,16 +2,20 @@ import { useContext, useEffect } from "react"
 import { DateContext } from "./ContextConfig";
 
 export default function TestimonialList(props){
-     let cntxt = useContext(DateContext);
-    
+    const [name,setName]  = useContext(DateContext);
+    const updateName=()=>{
+            setName("value is updated in testimonial context");
+    }
+
     return(
         
         <div className="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div className="container">
             <div className="text-center">
                 <h6 className="text-primary text-uppercase">// Testimonial component//</h6>
-                <h1 className="mb-5">Our Clients Say! and date is {cntxt}</h1>
+                <h1 className="mb-5">Our Clients Say! and date is {name}</h1>
             </div>
+            <button onClick={()=>{updateName()}}>Click me to update context</button>
             <div className="owl-carousel testimonial-carousel position-relative">
                 {
                     props.userList.map((obj,index)=>{

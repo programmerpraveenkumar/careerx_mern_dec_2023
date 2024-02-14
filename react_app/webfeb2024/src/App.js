@@ -5,6 +5,7 @@ import Home from './Home';
 import About from './About';
 import Service from './Service';
 import { DateContext } from './ContextConfig';
+import { useState } from 'react';
 
 let router = createBrowserRouter([
   {
@@ -26,8 +27,9 @@ let router = createBrowserRouter([
 
 
 function App() {
+  const [name,setName] = useState('from context');
   return (
-    <DateContext.Provider value="10feb2024">
+    <DateContext.Provider value={[name,setName]}>
       <RouterProvider router={router} />
     </DateContext.Provider>
   
