@@ -21,18 +21,21 @@ export default function ApiList2(){
     },[])
 
     const getApiUserList =async (pageNo)=>{
-            let response = await fetch("https://reqres.in/api/users?page="+pageNo,{"method":"GET","headers":{"content-type":"application/json"}});
-            let res = await response.json();
-            console.log(res);
-
-            //below is update state variable in order to display in ui
-            setUserList(res['data']);//array of objects from server response
+            let token_val = localStorage.getItem("token");
+            let response = await fetch("http://localhost:8080/user",
+            {"method":"GET","headers":{"content-type":"application/json","token":token_val}});
+            let json = await response.json();
+            console.log(json);            
     }
     const selectPageNo=(pageNo)=>{
             // console.log(pageNo);
             getApiUserList(pageNo)
     }
-
+    //call  this method during the logout button click,
+    const logout=()=>{
+        //remove the token from the localstorage
+        localStorage.removeItem('token');
+    }
     return(
         <>
             <h1>Api List</h1>
