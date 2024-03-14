@@ -2,9 +2,11 @@
 
 var express = require("express");//
 var animal = require('./animal');
+var mongoose = require("mongoose");
 var multer = require('multer');//file upload
 var validate = require('./LoginRegister');
 let { MongoClient } = require("mongodb");
+
 var app = express();//from previous line.
 
 // const upload = multer({ dest: 'uploads/' })
@@ -18,7 +20,7 @@ const storageConfig = multer.diskStorage({
   })
   
   const upload = multer({ storage: storageConfig })
-
+  const CountryModel = mongoose.model('country',{"name":String, "capital":String,population:Number});
 app.use(express.json());//to recv the request body in the post method
 
 //localhost:8080/validate/login
@@ -44,6 +46,7 @@ app.use((req,res)=>{
 //if request starts with animal it goes to ths place
 app.use('/animal',animal);
 const client = new MongoClient("mongodb://127.0.0.1:27017/feb2024");
+
 //get api
 app.get("/user",async (req,res)=>{
     await client.connect();//connect the mongodb
@@ -68,6 +71,17 @@ app.get('/file_read',(req,res)=>{
     res.sendFile("uploads/"+fileName, { root: '.' });
 })
 
+app.get("/testmongoose",async (req,res)=>{
+    await mongoose.connect('mongodb://127.0.0.1:27017/feb2024');
+    //model creation
+    const User = mongoose.model('User', { name: String,age:Number });
+    //set the data in the model
+    const user = new User({ name: 'sample user',age:52 });
+    //stores the data
+    await user.save();
+    res.json({"message":"data is inserted!!"});//json response.
+    res.end();
+})
 
 //post api
 app.post("/user",async(req,res)=>{
@@ -76,7 +90,7 @@ app.post("/user",async(req,res)=>{
     const database = client.db('feb2024');
     const user = database.collection('user');//collection name
     let data = {
-        "name":body['name'],
+        "nameetet":body['name'],
         "email":body['email'],
         "password":body['password'],
         'mobile':body['mobile'],
@@ -86,6 +100,23 @@ app.post("/user",async(req,res)=>{
     res.json({"message":"data is inserted!!"});//json response.
     res.end();//ths should be end of execution.
 })
+
+app.post("/create_countries",async(req,res)=>{
+    let body = req['body'];//recv the data from request body
+    await mongoose.connect('mongodb://127.0.0.1:27017/feb2024');
+    let country = new CountryModel({"name":body['name'],"capital":body['capital'],"population": body['population']})
+    await country.save();
+    res.json({"message":"country is inserted!!"});//json response.
+    res.end();//ths should be end of execution.
+})
+
+app.get("/list_countries",async(req,res)=>{
+    await mongoose.connect('mongodb://127.0.0.1:27017/feb2024');  
+    let data = await CountryModel.find();//read the data from mongodb collection
+    res.json(data);//json response.
+    res.end();//ths should be end of execution.
+})
+
 
 app.post("/product",async(req,res)=>{
     await client.connect();//connect the mongodb

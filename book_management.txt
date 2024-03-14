@@ -1,0 +1,18 @@
+book 
+Create new database in mongodb name book.
+React app:
+	1.create book Form
+		bookname,price,author,category
+	2.listbooks
+		show the list of books from api response.
+
+
+Nodejs:(expressjs,cors,mongodb,mongoose)
+Create 2 apis
+	1.create_book
+		method:POST
+		body:[bookname,price,author,category]
+		store in the mongodb
+
+	2.list_book
+		read the books from database and send as response.
